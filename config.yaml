@@ -1,30 +1,13 @@
-main:
-  project_name: nyc_airbnb
-  experiment_name: development
-  steps: all
-  components_repository: "https://github.com/udacity/build-ml-pipeline-for-short-term-rental-prices"
-
-etl:
-  sample: "sample.csv"
-  min_price: 10
-  max_price: 350
-
-data_check:
-  kl_threshold: 0.2
-
-modeling:
-  random_seed: 42
-  val_size: 0.2
-  test_size: 0.2
-  stratify_by: "neighbourhood_group"
-  max_tfidf_features: 15
-  random_forest:
-    n_estimators: 100
-    max_depth: 15
-    min_samples_split: 4
-    min_samples_leaf: 3
-    max_features: 0.5
-    criterion: mae
-    oob_score: true
-    n_jobs: -1
-    random_state: 42
+cat > src/basic_cleaning/conda.yml << 'EOF'
+name: basic_cleaning
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pip=23.1
+  - pip:
+    - wandb==0.15.11
+    - pandas==2.0.3
+    - numpy==1.24.3
+EOF
