@@ -1,3 +1,4 @@
+cat > src/basic_cleaning/conda.yml << 'EOF'
 name: basic_cleaning
 channels:
   - conda-forge
@@ -5,7 +6,9 @@ channels:
 dependencies:
   - python=3.10
   - pip=23.1
+  - setuptools<81
   - pip:
       - wandb==0.15.11
       - pandas==2.0.3
       - numpy==1.24.3
+EOF
