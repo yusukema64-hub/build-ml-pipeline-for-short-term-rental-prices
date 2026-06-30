@@ -1,18 +1,27 @@
-name: nyc_airbnb
+name: basic_cleaning
 conda_env: conda.yml
 
 entry_points:
   main:
     parameters:
-
-      steps:
-        description: Comma-separated list of steps to execute (useful for debugging)
+      input_artifact:
+        description: Input artifact name
         type: str
-        default: all
-
-      hydra_options:
-        description: Other configuration parameters to override
+      output_name:
+        description: Output artifact name
         type: str
-        default: ''
-
-    command: "python main.py main.steps=\\'{steps}\\' $(echo {hydra_options})"
+      output_type:
+        description: Output artifact type
+        type: str
+      output_description:
+        description: Output artifact description
+        type: str
+      min_price:
+        description: Minimum price
+        type: float
+        default: 10
+      max_price:
+        description: Maximum price
+        type: float
+        default: 350
+    command: "python run.py --input_artifact {input_artifact} --output_name {output_name} --output_type {output_type} --output_description {output_description} --min_price {min_price} --max_price {max_price}"
