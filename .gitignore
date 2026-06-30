@@ -113,3 +113,9 @@ mlruns/
 outputs/
 random_forest_dir/
 multirun/
+
+# Generated data files
+data
+data/
+components/get_data/data/
+src/basic_cleaning/clean_sample.csv
