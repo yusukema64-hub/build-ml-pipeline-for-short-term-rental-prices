@@ -611,3 +611,18 @@ This model was tagged `prod` in Weights & Biases and evaluated on the held-out t
 The full pipeline, including all experiment runs and artifacts, can be explored on
 Weights & Biases:
 [https://wandb.ai/yusuke-ma64-udacity/nyc_airbnb](https://wandb.ai/yusuke-ma64-udacity/nyc_airbnb)
+
+## Training on a New Data Sample (sample2.csv)
+
+The released pipeline (v1.0.0) was also validated against a second, larger
+data sample (`sample2.csv`). The `basic_cleaning` step already includes a
+filter that removes records with latitude/longitude outside of the NYC area
+(`longitude` between -74.25 and -73.50, `latitude` between 40.5 and 41.2),
+so the pipeline ran successfully end-to-end without any code changes.
+
+Results when training on `sample2.csv`:
+
+- **R² (validation):** 0.6008
+- **MAE (validation):** 31.51
+
+This confirms that the pipeline generalizes correctly to a new, larger data sample.
